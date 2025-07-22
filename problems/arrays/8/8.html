@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Prime Numbers in an Array</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./8.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Counting Prime Numbers in an Array</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <section class="problem-statement">
+                <h2>Problem Statement</h2>
+                <p>Given an array of integers, count how many elements in the array are prime numbers.</p>
+            </section>
+            
+            <section class="io-format">
+                <h2>Example 1</h2>
+                <p><strong>Input:</strong><br>
+                5<br>
+                2 3 4 5 10</p>
+                <p><strong>Output:</strong><br>
+                3</p>
+                <p><strong>Explanation:</strong><br>
+                The prime numbers in the array are 2, 3, and 5. Hence, the output is <strong>3</strong>.</p>
+            
+                <h2>Example 2</h2>
+                <p><strong>Input:</strong><br>
+                6<br>
+                6 7 8 9 10 11</p>
+                <p><strong>Output:</strong><br>
+                2</p>
+                <p><strong>Explanation:</strong><br>
+                The prime numbers in the array are 7 and 11. Hence, the output is <strong>2</strong>.</p>
+            
+                <h3>Constraints</h3>
+                <ul>
+                    <li><strong>1 ≤ n ≤ 10⁶</strong> (number of elements in the array)</li>
+                    <li><strong>−10⁶ ≤ array elements ≤ 10⁶</strong> (elements of the array)</li>
+                </ul>
+            
+                <br>
+            </section>
+            
+        
+
+        
+    
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n, prime_count = 0;
+    scanf("%d", &n);
+    
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    for (int i = 0; i < n; i++) {
+        if (is_prime(arr[i])) {
+            prime_count++;
+        }
+    }
+    
+    printf("%d\n", prime_count);
+    return 0;
+}
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how to check whether a number is prime. A prime number is only divisible by 1 and itself.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>To check if a number is prime, loop through numbers from 2 up to the square root of the number, and check if it's divisible by any of them.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Count how many numbers in the array are prime using the logic from the previous hints.</p>
+            </details>
+        </section>
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <!-- Solution Section as a Details Tag -->
+        <details class="solution">
+            <summary>Solution</summary>
+
+            <!-- Tab System for Solution -->
+            <div class="solution-tab-container">
+                <button class="solution-tab-btn active" data-lang="c">C</button>
+                <button class="solution-tab-btn" data-lang="python">Python</button>
+                <button class="solution-tab-btn" data-lang="java">Java</button>
+            </div>
+
+            <!-- Solution Code Display -->
+            <div id="solution-code-display">
+                <pre>
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int n, prime_count = 0;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+    
+    int arr[n];
+    printf("Enter the elements: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+    
+    for (int i = 0; i < n; i++) {
+        if (is_prime(arr[i])) {
+            prime_count++;
+        }
+    }
+    
+    printf("The number of prime numbers is: %d\n", prime_count);
+    return 0;
+}
+                </pre>
+            </div>
+        </details>
+
+        <details>
+  <summary>Explanation</summary>
+
+  <h3>🧾 Problem Understanding</h3>
+  <p>You're given an array of integers and need to count how many are prime numbers.</p>
+  <p>A prime number is an integer greater than 1 that has no positive divisors other than 1 and itself.</p>
+
+  <h3>🔢 Input Format</h3>
+  <ul>
+    <li>First line: Integer <code>n</code> — the number of elements in the array.</li>
+    <li>Second line: <code>n</code> space-separated integers — the elements of the array.</li>
+  </ul>
+
+  <h3>💡 Step-by-Step Approach</h3>
+  <ol>
+    <li>Read the integer <code>n</code>.</li>
+    <li>Read <code>n</code> integers into an array.</li>
+    <li>Initialize a variable <code>prime_count</code> to 0.</li>
+    <li>For each element, check if it is a prime using a helper function <code>is_prime()</code>.</li>
+    <li>Increment <code>prime_count</code> for each prime number found.</li>
+    <li>Print <code>prime_count</code>.</li>
+  </ol>
+
+  <h3>🧠 Prime-Checking Logic</h3>
+  <p>The function <code>is_prime(num)</code> checks if a number is prime by testing divisibility from 2 to √num.</p>
+  <pre>
+bool is_prime(int num) {
+    if (num <= 1) return false;
+    for (int i = 2; i * i <= num; i++) {
+        if (num % i == 0) return false;
+    }
+    return true;
+}
+  </pre>
+
+  <h3>⚙️ Time and Space Complexity</h3>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(n√m), where m is the maximum number in the array.</li>
+    <li><strong>Space Complexity:</strong> O(1) if not counting input array, else O(n).</li>
+  </ul>
+
+  <h3>🔍 Edge Cases to Consider</h3>
+  <ul>
+    <li>Array contains all non-prime numbers → Output: 0</li>
+    <li>Array has duplicate primes (e.g., 2 2 2) → Count all</li>
+    <li>Negative numbers and 0, 1 are not prime → Should be ignored</li>
+  </ul>
+
+  <h3>✅ Sample Dry Run</h3>
+  <pre>
+Input:
+5
+2 3 4 5 10
+
+is_prime(2) → true
+is_prime(3) → true
+is_prime(4) → false
+is_prime(5) → true
+is_prime(10) → false
+
+Output: 3
+  </pre>
+</details>
+
+    </main>
+
+    <script>
+        
+
+        // Tab Switching Logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const solutionTabs = document.querySelectorAll(".solution-tab-btn");
+            solutionTabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    solutionTabs.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const lang = this.getAttribute("data-lang");
+                    // Optionally display code based on selected language (you can add functionality here)
+                    // For example, you can dynamically change solution content based on selected language
+                });
+            });
+        });
+
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+
+</body>
+</html>

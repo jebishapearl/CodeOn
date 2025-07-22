@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armstrong</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./13.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Armstrong Number</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, determine whether it is an Armstrong number. An Armstrong number (also known as a narcissistic number) is a number that is equal to the sum of its own digits each raised to the power of the number of digits.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            153</p>
+            <p><strong>Output:</strong><br>
+            YES</p>
+            <p><strong>Explanation:</strong><br>
+            153 has 3 digits. <strong>1³ + 5³ + 3³ = 1 + 125 + 27 = 153</strong>, so it is an Armstrong number.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            123</p>
+            <p><strong>Output:</strong><br>
+            NO</p>
+            <p><strong>Explanation:</strong><br>
+            123 has 3 digits. <strong>1³ + 2³ + 3³ = 1 + 8 + 27 = 36</strong>, which is not equal to 123, so it is not an Armstrong number.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ N ≤ 10⁶</strong></li>
+            </ul>
+        
+            <br>
+        </section>
+        
+
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int N, sum;
+            scanf("%d", &N);
+            printf("%d\n", sum);
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+        
+        
+        
+        
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Break the number into its individual digits and count how many digits it has.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Raise each digit to the power of the total number of digits and sum the results.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Compare the sum with the original number. If they are equal, it's an Armstrong number.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We previously used digit extraction in <strong>Reverse a Number</strong> and <strong>Count Digits in a Number</strong>. A similar approach will help here.</p>
+            </details>
+        </section>
+        
+
+       
+
+        
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <!-- Tab System for Solution -->
+<div class="solution-tab-container">
+    <button class="solution-tab-btn active" data-lang="c">C</button>
+    <button class="solution-tab-btn" data-lang="python">Python</button>
+    <button class="solution-tab-btn" data-lang="java">Java</button>
+</div>
+
+<!-- Solution Code Display -->
+<div id="solution-code-display">
+    <pre>
+        #include &lt;stdio.h&gt;
+        #include &lt;math.h&gt;
+        int main() {
+            int N, sum = 0, temp, remainder, digits = 0;
+            printf("enter a number: ");
+            scanf("%d", &N);
+            temp = N;
+        
+            // Count the number of digits in N
+            while (temp != 0) {
+                temp /= 10;
+                digits++;
+            }
+        
+            temp = N;
+            // Calculate the sum of each digit raised to the power of 'digits'
+            while (temp != 0) {
+                remainder = temp % 10;
+                sum += pow(remainder, digits);
+                temp /= 10;
+            }
+        
+            // Check if the sum equals the original number
+            if (sum == N)
+                printf("YES\n");
+            else
+                printf("NO\n");
+        
+            return 0;
+        }
+    </pre>
+</div>
+
+            </details>
+        </section>
+
+        <section class="explanation">
+    <h2>Explanation</h2>
+    <details>
+        <summary>View Explanation</summary>
+        <p>
+            An <strong>Armstrong number</strong> is a number that is equal to the sum of its digits each raised to the power of the number of digits.
+        </p>
+
+        <h3>Steps to solve:</h3>
+        <ol>
+            <li><strong>Count the digits:</strong> First, we find out how many digits are in the number <code>N</code>. This is usually done by dividing <code>N</code> by 10 repeatedly until it becomes 0.</li>
+            <li><strong>Break the number down:</strong> We extract each digit using <code>% 10</code>, just like in the “Reverse a Number” or “Count Digits” problems.</li>
+            <li><strong>Raise to power:</strong> For each digit, raise it to the power of the digit count using <code>pow()</code> in C and Java, or <code>**</code> in Python.</li>
+            <li><strong>Compare:</strong> Sum all powered digits. If this sum equals the original number, then it's an Armstrong number.</li>
+        </ol>
+
+        <h3>Does the approach change in Python or Java?</h3>
+        <p>
+            Not really. The steps remain the same:
+            <ul>
+                <li>Use <code>**</code> in Python for power, <code>pow()</code> in C and Java.</li>
+                <li>In Python, we use <code>len(str(N))</code> to count digits easily instead of a loop.</li>
+                <li>Syntax and variable declaration rules differ slightly, but the core logic is the same.</li>
+            </ul>
+        </p>
+
+        <h3>Example: 153</h3>
+        <ul>
+            <li>153 has 3 digits.</li>
+            <li>Digits: 1, 5, 3 → Raised to power 3: 1³, 5³, 3³ → 1 + 125 + 27 = 153</li>
+            <li>Since the sum equals the number, output is <strong>YES</strong>.</li>
+        </ul>
+
+        <h3>Another Example: 123</h3>
+        <ul>
+            <li>Digits: 1, 2, 3 → 1³ + 2³ + 3³ = 1 + 8 + 27 = 36 ≠ 123</li>
+            <li>So the output is <strong>NO</strong>.</li>
+        </ul>
+    </details>
+</section>
+
+    </main>
+
+    <script>
+        // Function to copy the code to clipboard
+        
+
+function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

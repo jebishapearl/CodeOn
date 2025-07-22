@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>star triangle</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./6.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Right-Angled Star Pattern</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, print a right-angled triangle pattern of stars (*) with <strong>N</strong> rows using an iterative approach.</p>
+        </section>
+    
+        <section class="io-format">
+            <h2>Input Format</h2>
+            <ul>
+                <li>A single integer <strong>N</strong> (1 ≤ N ≤ 100).</li>
+            </ul>
+    
+            <h2>Output Format</h2>
+            <ul>
+                <li>N lines of output, where the <strong>i<sup>th</sup></strong> line contains <strong>i</strong> stars (*).</li>
+            </ul>
+        </section>
+    
+        <section class="example">
+            <h2>Example</h2>
+            <h3>Input:</h3>
+            <pre>5</pre>
+            <h3>Output:</h3>
+            <pre>
+    *
+    **
+    ***
+    ****
+    *****
+            </pre>
+        </section>
+    
+
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int N;
+            printf("enter a number: ");
+            scanf("%d", &N);
+            for (int i = 1; i <= N; i++) {
+                for (int j = 1; j <= i; j++) {
+                    printf("*");
+                }
+                printf("\n");
+            }
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+        
+        
+        
+        
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how many rows and columns you need to print in a right-angled triangle pattern.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Use a loop to print rows, and inside each row, use another loop to print stars.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>The number of stars in each row is equal to the row number.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We used a similar approach in the <strong>Sum of first N numbers</strong> problem, where we iterated from 1 to N. Here, we do the same but print stars instead of summing numbers.</p>
+            </details>
+        </section>
+        
+
+        
+
+       
+
+        
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <!-- Tab System for Solution -->
+<div class="solution-tab-container">
+    <button class="solution-tab-btn active" data-lang="c">C</button>
+    <button class="solution-tab-btn" data-lang="python">Python</button>
+    <button class="solution-tab-btn" data-lang="java">Java</button>
+</div>
+
+<!-- Solution Code Display -->
+<div id="solution-code-display">
+    <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N, sum = 0;
+    printf("enter a number: ");
+    scanf("%d", &N);
+    for (int i = 1; i <= N; i++) {
+        sum += i;
+    }
+    printf("%d\n", sum);
+    return 0;
+}
+    </pre>
+</div>
+
+            </details>
+        </section>
+
+        <details>
+  <summary>View Explanation</summary>
+
+  <h3>1&nbsp;·&nbsp;What pattern are we printing?</h3>
+  <p>
+    A <strong>left‑aligned right‑angled triangle</strong> where the
+    <em>i‑th</em> row contains exactly <em>i</em> asterisks:
+  </p>
+  <pre>
+*
+**
+***
+****
+...
+  </pre>
+  <p>
+    For an input <code>N</code>, we therefore need <code>N</code> rows,
+    and each row’s star‑count is its own row‑number.
+  </p>
+
+  <h3>2&nbsp;·&nbsp;Core idea (language‑agnostic)</h3>
+  <ul>
+    <li>Loop from <code>i&nbsp;=&nbsp;1</code> to <code>N</code> (one row per <em>i</em>).</li>
+    <li>During each iteration, output <em>i</em> stars, then move to the next line.</li>
+  </ul>
+
+  <h3>3&nbsp;·&nbsp;How C&nbsp;and Java implement it &mdash; <em>nested loops</em></h3>
+  <pre><code>
+// outer loop: rows
+for (int i = 1; i <= N; i++) {
+
+    // inner loop: print 'i' stars on this row
+    for (int j = 1; j <= i; j++) {
+        printf("*");              // C
+        // System.out.print("*"); // Java
+    }
+
+    printf("\n");                  // C
+    // System.out.println();       // Java
+}</code></pre>
+  <p>
+    The <strong>outer loop</strong> decides <em>how many rows</em> to print.<br>
+    The <strong>inner loop</strong> prints <em>exactly i stars</em> for that row.<br>
+    After finishing the inner loop, a newline starts the next row.
+  </p>
+
+  <h3>4&nbsp;·&nbsp;How Python implements it &mdash; <em>string multiplication trick</em></h3>
+  <pre><code>N = int(input())          # read N
+for i in range(1, N + 1):        # single loop = rows
+    print('*' * i)               # '*' multiplied i times
+</code></pre>
+  <p>
+    Python’s strings can be “multiplied” by an integer, so
+    <code>'*' * i</code> instantly produces a string containing
+    <em>i</em> asterisks. That removes the need for an inner loop
+    and makes the code shorter.  
+    Functionally, it’s the same: one print per row, newline added
+    automatically by <code>print()</code>.
+  </p>
+
+  <h3>5&nbsp;·&nbsp;Complexities</h3>
+  <ul>
+    <li><strong>Time&nbsp;Complexity:</strong> O(<em>N²</em>) &nbsp;— we print 1 + 2 + … + N ≈ N(N+1)/2 stars.</li>
+    <li><strong>Space&nbsp;Complexity:</strong> O(1) &nbsp;— we only store loop counters (Python’s temporary string is discarded each iteration).</li>
+  </ul>
+
+  <h3>6&nbsp;·&nbsp;Take‑away differences</h3>
+  <ul>
+    <li><strong>C / Java:</strong> Two explicit loops, very clear step‑by‑step control.</li>
+    <li><strong>Python:</strong> One loop plus string multiplication &nbsp;→&nbsp; more concise but relies on a language feature.</li>
+  </ul>
+</details>
+
+
+    </main>
+
+    <script>
+        // Function to copy the code to clipboard
+        
+
+function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

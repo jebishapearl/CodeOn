@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of N squares</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Sum of Squares of First N Natural Numbers</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, calculate the sum of the squares of the first N natural numbers using an iterative approach.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            4</p>
+            <p><strong>Output:</strong><br>
+            30</p>
+            <p><strong>Explanation:</strong><br>
+            The first 4 natural numbers are: <strong>1, 2, 3, 4</strong>.</p>
+            <p>Their squares are: <strong>1², 2², 3², 4² → 1, 4, 9, 16</strong>.</p>
+            <p>The sum of squares: <strong>1 + 4 + 9 + 16 = 30</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            3</p>
+            <p><strong>Output:</strong><br>
+            14</p>
+            <p><strong>Explanation:</strong><br>
+            The first 3 natural numbers are: <strong>1, 2, 3</strong>.</p>
+            <p>Their squares are: <strong>1², 2², 3² → 1, 4, 9</strong>.</p>
+            <p>The sum of squares: <strong>1 + 4 + 9 = 14</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ N ≤ 10⁶</strong></li>
+            </ul>
+        
+            <br>
+        </section>
+        
+
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block"></pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you normally sum numbers 1 to N using a loop.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Initialize a variable sum to 0 and iterate through numbers from 1 to N.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Add each number squared to the sum during each iteration.</p>
+            </details>
+        </section>
+
+       
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <div class="solution-tab-container">
+                    <button class="solution-tab-btn active" data-lang="c">C</button>
+                    <button class="solution-tab-btn" data-lang="python">Python</button>
+                    <button class="solution-tab-btn" data-lang="java">Java</button>
+                </div>
+                <div id="solution-code-display">
+                    <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N, sum = 0;
+    printf("enter a number: ");
+    scanf("%d", &N);
+    for (int i = 1; i <= N; i++) {
+        sum += i * i;
+    }
+    printf("%d\n", sum);
+    return 0;
+}
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <details>
+  <summary>View Explanation</summary>
+  <p>
+    The task is to calculate the sum of squares of the first <strong>N</strong> natural numbers.
+    These numbers are <code>1, 2, 3, ..., N</code>.
+  </p>
+  <p>
+    The logic in the code is straightforward:
+  </p>
+  <ul>
+    <li>Initialize a variable <code>sum</code> to <code>0</code>.</li>
+    <li>Use a loop from <code>1</code> to <code>N</code>.</li>
+    <li>In each iteration, compute <code>i * i</code> (i.e., the square of the number) and add it to <code>sum</code>.</li>
+    <li>After the loop completes, <code>sum</code> holds the total of all squares from <code>1</code> to <code>N</code>.</li>
+  </ul>
+  <p>
+    This same approach is used across C, Python, and Java — only the syntax changes, not the logic.
+  </p>
+</details>
+
+    </main>
+
+    <script>
+        
+        
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

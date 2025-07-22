@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appendix - Loops & Arrays</title>
+    <link rel="stylesheet" href="appendix.css">
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; text-align: center; }
+        .tabs { display: flex; cursor: pointer; }
+        .tab { padding: 10px 20px; border: 1px solid #ccc; border-bottom: none; background: #f4f4f4; }
+        
+        .content { border: 1px solid #ccc; padding: 20px; display: none; }
+        .content.active { display: block; }
+
+        .container {
+    width: 75%; /* 6 out of 12 columns = 50% */
+    margin: 0 auto; /* Centers it horizontally */
+    text-align: left; /* Keeps text left-aligned */
+}
+
+.rotate {
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-in-out;
+}
+
+
+details summary {
+    list-style: none; /* Removes the default triangle */
+}
+
+details summary::-webkit-details-marker {
+    display: none; /* Hides the marker in WebKit browsers */
+}
+
+details {
+    margin-bottom: 10px; /* Adds space between each details element */
+    padding: 8px; /* Adds padding inside each details box */
+    border-radius: 5px; /* Optional: Rounds the corners */
+     /* border: 1px solid #ddd;Optional: Adds a light border */
+     /*background-color: #f9f9f9; Optional: Light background for better separation */
+}
+
+pre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  background-color: #fcf3d3;
+  padding: 10px;
+  border-radius: 5px;
+  display: block; /* ✅ For block-level code */
+}
+
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95rem;
+  background-color: #fcf3d3;
+  padding: 2px 4px;
+  border-radius: 3px;
+  /* ⛔ Do NOT set display: block here */
+}
+
+
+    </style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+    <h1>Appendix: Loops & Arrays</h1>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="showTab(0)">Loops and Arrays - The Basics</div>
+        <div class="tab" onclick="showTab(1)">Advanced Loops and Array Techniques</div>
+    </div>
+    
+    <div class="content active" id="page1">
+        <h2>Loops and Arrays - The Basics</h2>
+
+<h3>1. Introduction to Loops</h3>
+<details>
+    <summary>What are loops?</summary>
+    <p>Loops are control structures that allow repeated execution of a block of code based on a condition.</p>
+</details>
+<details>
+    <summary>Types of loops</summary>
+    <ul>
+        <li><strong>For loop</strong> - Used when the number of iterations is known.</li>
+        <li><strong>While loop</strong> - Used when the number of iterations is unknown.</li>
+        <li><strong>Do-while loop</strong> - Similar to while, but executes at least once.</li>
+    </ul>
+</details>
+<details>
+    <summary>Key terminology</summary>
+    <ul>
+        <li><strong>Initialization</strong> - Setting the loop variable.</li>
+        <li><strong>Condition</strong> - The check that decides whether the loop continues.</li>
+        <li><strong>Increment/Decrement</strong> - Changing the loop variable per iteration.</li>
+    </ul>
+</details>
+<details>
+  <summary>Examples of each loop type</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+    <p><strong>1. For Loop</strong> – Best when number of iterations is known:</p>
+    <pre><code>for (int i = 0; i &lt; 5; i++) {
+    printf("Count: %d\n", i);
+}</code></pre>
+
+    <p><strong>2. While Loop</strong> – Use when condition must be checked before running:</p>
+    <pre><code>int i = 0;
+while (i &lt; 5) {
+    printf("Count: %d\n", i);
+    i++;
+}</code></pre>
+
+    <p><strong>3. Do-While Loop</strong> – Guarantees at least one execution:</p>
+    <pre><code>int i = 0;
+do {
+    printf("Count: %d\n", i);
+    i++;
+} while (i &lt; 5);</code></pre>
+  </div>
+</details>
+
+<details>
+  <summary>Common pitfalls</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+    <ul>
+      <li><strong>Infinite loops:</strong> Forgetting to update the loop variable.</li>
+      <li><strong>Off-by-one errors:</strong> Using <code>&lt;=</code> instead of <code>&lt;</code> (or vice versa).</li>
+      <li><strong>Wrong loop boundaries:</strong> Starting from 1 instead of 0, or ending at n instead of n - 1.</li>
+      <li><strong>Modifying loop variables inside nested logic:</strong> Can cause unexpected behavior.</li>
+    </ul>
+    <p><em>Tip:</em> Always dry-run your loop with pen and paper or use debug prints to track loop variables.</p>
+  </div>
+</details>
+
+
+<h3>2. Introduction to Arrays</h3>
+<details>
+    <summary>What are arrays?</summary>
+    <p>Arrays are data structures that store multiple values of the same type.</p>
+</details>
+<details>
+    <summary>Why use them?</summary>
+    <p>They help organize and process collections of data efficiently.</p>
+</details>
+<details>
+    <summary>Key terminology</summary>
+    <ul>
+        <li><strong>Index</strong> - The position of an element in an array.</li>
+        <li><strong>Length</strong> - The number of elements in an array.</li>
+        <li><strong>Traversing</strong> - Accessing each element in an array.</li>
+    </ul>
+</details>
+<details>
+  <summary>Declaring and accessing arrays</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+    <p><strong>1. Declaration</strong></p>
+    <pre><code>// Static array with size 5
+int numbers[5];
+
+// Declaration with initialization
+int scores[3] = {85, 90, 78};
+
+// Compiler infers size
+int primes[] = {2, 3, 5, 7, 11};
+</code></pre>
+
+    <p><strong>2. Accessing Elements</strong></p>
+    <pre><code>int first = scores[0];   // Access first element
+int last = scores[2];    // Access third element
+
+// Modify an element
+scores[1] = 95;
+</code></pre>
+
+    <p><strong>3. Looping Through an Array</strong></p>
+    <pre><code>for (int i = 0; i &lt; 3; i++) {
+    printf("Score %d: %d\n", i, scores[i]);
+}</code></pre>
+
+    <p><strong>Important Notes:</strong></p>
+    <ul>
+      <li>Array indices start at <code>0</code>.</li>
+      <li>Accessing out-of-bound indices can lead to garbage values or crashes.</li>
+      <li>Array size must be known at compile time in C (for static arrays).</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+    <summary>Basic array operations</summary>
+    <ul>
+        <li>Summing elements</li>
+        <li>Finding the maximum value</li>
+    </ul>
+</details>
+<details>
+  <summary>Common pitfalls</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+    <ul>
+      <li><strong> Out-of-bounds access:</strong> Trying to access <code>array[n]</code> when the last valid index is <code>n - 1</code>.
+        <br><em>Example:</em>
+        <pre><code>int arr[3] = {1, 2, 3};
+printf("%d", arr[3]); // ❌ Invalid – crashes or gives garbage</code></pre>
+      </li>
+
+      <li><strong>🔁 Modifying an array while iterating:</strong> Can skip elements or behave unexpectedly.
+        <br><em>Example:</em>
+        <pre><code>// Risky logic when removing items
+for (int i = 0; i &lt; n; i++) {
+    if (arr[i] == 0) {
+        remove(arr, i); // modifies array and size
+    }
+}</code></pre>
+      </li>
+
+      <li><strong> Forgetting array size:</strong> Using <code>sizeof</code> incorrectly on pointers.
+        <br><em>Example:</em>
+        <pre><code>int* ptr = malloc(5 * sizeof(int));
+sizeof(ptr) / sizeof(int); // ❌ Wrong – gives size of pointer, not array</code></pre>
+      </li>
+
+      <li><strong> Reusing arrays without resetting values:</strong> Old values can cause bugs if not cleared.</li>
+
+      <li><strong> Off-by-one errors:</strong> Common when using <code>&lt;=</code> instead of <code>&lt;</code>.</li>
+
+      <li><strong> Using uninitialized arrays:</strong> Reading before writing can lead to unpredictable values.</li>
+    </ul>
+
+    <p><em>✅ Tip:</em> Always track array boundaries and initialize variables before use. Use tools like Valgrind (in C/C++) to catch memory errors.</p>
+  </div>
+</details>
+
+
+    </div>
+    
+    <div class="content" id="page2">
+        <h2>Advanced Loops and Array Techniques</h2>
+
+
+
+
+<h3>1. Looping Through Arrays Efficiently</h3>
+<details>
+  <summary>Using for, while, and for-each loops for array traversal</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+
+    <p><strong>1. For Loop</strong> – Best when you need the index</p>
+    <pre><code>int arr[] = {10, 20, 30, 40, 50};
+int n = sizeof(arr) / sizeof(arr[0]);
+
+for (int i = 0; i &lt; n; i++) {
+    printf("Index %d = %d\n", i, arr[i]);
+}</code></pre>
+    <p>✔️ Full control over the index<br>
+       ❌ Easy to make off-by-one errors</p>
+
+    <hr>
+
+    <p><strong>2. While Loop</strong> – Good when the number of elements isn't fixed ahead of time</p>
+    <pre><code>int i = 0;
+while (i &lt; n) {
+    printf("Value = %d\n", arr[i]);
+    i++;
+}</code></pre>
+    <p>✔️ Flexible structure for dynamic conditions<br>
+       ❌ Manual index management required</p>
+
+    <hr>
+
+    <p><strong>3. For-Each Loop (in languages that support it)</strong></p>
+    <pre><code>// Example in C++ using range-based for loop
+int arr[] = {10, 20, 30, 40, 50};
+for (int value : arr) {
+    std::cout &lt;&lt; "Value = " &lt;&lt; value &lt;&lt; std::endl;
+}
+</code></pre>
+    <p>✔️ Clean syntax when index is not needed<br>
+       ❌ Not available in C (only C++) and doesn't give index access</p>
+
+    <p><strong>Note:</strong> In C, for-each loops aren't available. Stick to for/while loops.</p>
+
+  </div>
+</details>
+
+<details>
+    <summary>When to use each type</summary>
+    <ul>
+        <li><strong>For loop</strong> - When the number of iterations is fixed.</li>
+        <li><strong>While loop</strong> - When the stopping condition isn't known in advance.</li>
+        
+    </ul>
+</details>
+<details>
+    <summary>Avoiding common mistakes</summary>
+    <ul>
+        <li>Forgetting to update loop variables (causing infinite loops).</li>
+        <li>Using an incorrect loop condition (off-by-one errors).</li>
+    </ul>
+</details>
+
+<h3>2. Nested Loops</h3>
+<details>
+    <summary>What are nested loops?</summary>
+    <p>A loop inside another loop, useful for handling 2D structures.</p>
+</details>
+<details>
+    <summary>When to use them</summary>
+    <ul>
+        <li>Pattern printing</li>
+        <li>Matrix traversal</li>
+    </ul>
+</details>
+<details>
+  <summary>Examples in C and Python</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+
+    <p><strong>🔹 Task:</strong> Print a 3x3 multiplication table using nested loops</p>
+
+    <p><strong>C Version:</strong></p>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i &lt;= 3; i++) {
+        for (int j = 1; j &lt;= 3; j++) {
+            printf("%d\t", i * j);
+        }
+        printf("\n");
+    }
+    return 0;
+}</code></pre>
+
+    <p><strong>Python Version:</strong></p>
+    <pre><code>for i in range(1, 4):
+    for j in range(1, 4):
+        print(i * j, end="\t")
+    print()</code></pre>
+
+    <p><strong>✔️ Both Output:</strong></p>
+    <pre><code>1   2   3
+2   4   6
+3   6   9</code></pre>
+
+    <p><strong>Key Differences:</strong></p>
+    <ul>
+      <li>C requires explicit data types and <code>main()</code> function.</li>
+      <li>Python uses indentation to define loop bodies instead of braces.</li>
+      <li><code>range(1, 4)</code> in Python includes 1 but excludes 4 — equivalent to <code>i = 1; i &lt;= 3</code> in C.</li>
+    </ul>
+
+  </div>
+</details>
+
+<details>
+    <summary>Performance considerations</summary>
+    <p>Nested loops often lead to O(n²) complexity, making them inefficient for large inputs.</p>
+</details>
+
+<h3>3. Modulo Operator for Digit Isolation</h3>
+<details>
+    <summary>What is the modulo operator (%) and why is it useful?</summary>
+    <p>The modulo operator helps extract remainders, useful in number-related problems.</p>
+</details>
+<details>
+    <summary>Extracting digits from a number</summary>
+    <ul>
+        <li>Reversing digits</li>
+        <li>Checking if a number is a palindrome</li>
+    </ul>
+</details>
+<details>
+  <summary>Examples in C and Python</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+
+    <p><strong>🔹 Task:</strong> Extract and print each digit of a number (e.g., 1234 → 4, 3, 2, 1)</p>
+
+    <p><strong>C Version:</strong></p>
+    <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 1234;
+
+    while (num &gt; 0) {
+        int digit = num % 10;  // Get last digit
+        printf("%d\n", digit);
+        num = num / 10;        // Remove last digit
+    }
+
+    return 0;
+}</code></pre>
+
+    <p><strong>Python Version:</strong></p>
+    <pre><code>num = 1234
+
+while num &gt; 0:
+    digit = num % 10     # Get last digit
+    print(digit)
+    num = num // 10      # Remove last digit
+</code></pre>
+
+    <p><strong>✔️ Output for both:</strong></p>
+    <pre><code>4
+3
+2
+1</code></pre>
+
+    <p><strong>Key Notes:</strong></p>
+    <ul>
+  <li>Both use <code>%</code> to extract the last digit.</li>
+  <li><code>/</code> in C performs integer division if both operands are integers.</li>
+  <li>Python uses <code>//</code> for integer division; <code>/</code> gives a float.</li>
+  <li>Digits are printed in reverse order of the original number.</li>
+</ul>
+
+
+
+  </div>
+</details>
+
+<details>
+    <summary>Common mistakes</summary>
+    <ul>
+        <li>Confusing division (/) with modulo (%).</li>
+        <li>Incorrect order of operations when extracting digits.</li>
+    </ul>
+</details>
+
+<h3>4. Final Notes and Best Practices</h3>
+<details>
+  <summary>Combining loops and arrays for efficient problem-solving</summary>
+  <div style="padding: 10px; background-color: #fdf6e3; border-radius: 8px; margin-top: 10px;">
+
+    <p>Arrays store collections of data, while loops allow us to process that data systematically. When used together, they form the foundation for solving a wide range of computational problems efficiently.</p>
+
+    <p><strong>How this combination helps:</strong></p>
+    <ul>
+      <li><strong>Sequential processing:</strong> Loops let you visit each element of an array one-by-one in a predictable, repeatable way.</li>
+      <li><strong>Conditional logic:</strong> You can evaluate and respond to patterns within the data (e.g., filtering values, applying conditions) during traversal.</li>
+      <li><strong>Efficiency:</strong> Linear passes through arrays (O(n) time) avoid unnecessary computations or storage, leading to optimized performance.</li>
+      <li><strong>Flexibility:</strong> The same loop structure can be reused with different logic (e.g., counting, transforming, searching) depending on the problem’s goal.</li>
+      <li><strong>Low space overhead:</strong> Most problems can be solved using just the loop and the array itself, without extra memory.</li>
+    </ul>
+
+    <p>In short, loops handle *how* we move through data, and arrays define *what* data we're working with. Mastering their interaction is key to becoming an efficient problem-solver.</p>
+  </div>
+</details>
+
+<details>
+    <summary>Debugging tips for loop-related errors</summary>
+    <ul>
+        <li>Using print statements to track loop variables.</li>
+        <li>Breaking loops early to check conditions.</li>
+    </ul>
+</details>
+<details>
+    <summary>Optimizing loops for better performance</summary>
+    <ul>
+        <li>Avoid unnecessary iterations.</li>
+        <li>Use efficient data structures alongside loops.</li>
+    </ul>
+</details>
+
+    </div>
+</div>
+    
+<script>
+    function showTab(index) {
+        let tabs = document.querySelectorAll('.tab');
+        let contents = document.querySelectorAll('.content');
+
+        tabs.forEach((tab, i) => {
+            tab.classList.toggle('active', i === index);
+            contents[i].classList.toggle('active', i === index);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // Ensure the first tab is active by default
+        showTab(0);
+
+        document.querySelectorAll("details summary").forEach(summary => {
+            // Add the icon only if it doesn't exist already
+            if (!summary.querySelector("i")) {
+                let icon = document.createElement("i");
+                icon.className = "fas fa-chevron-right";
+                summary.insertBefore(icon, summary.firstChild);
+            }
+
+            // Toggle icon rotation on click
+            summary.addEventListener("click", function () {
+                let icon = this.querySelector("i");
+                if (this.parentElement.open) {
+                    icon.classList.remove("rotate");
+                } else {
+                    icon.classList.add("rotate");
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

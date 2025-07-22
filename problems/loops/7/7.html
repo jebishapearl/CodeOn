@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Triangle</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./7.js"></script>
+</head>
+<body>
+    <div class="overall">
+        <header>
+            <h1>Number Pyramid Right Triangle</h1>
+        </header>
+        <section class="problem-statement container">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, print a right-angled triangle pattern where each row contains increasing numbers from 1 to the row number.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Input Format</h2>
+            <ul>
+                <li>A single integer <strong>N</strong> (1 ≤ N ≤ 20).</li>
+            </ul>
+            <h2>Output Format</h2>
+            <ul>
+                <li>The output consists of N lines, where the i-th line contains numbers from 1 to i.</li>
+            </ul>
+        </section>
+        
+        <section class="example">
+            <h2>Example</h2>
+            <h3>Input</h3>
+            <pre>5</pre>
+            <h3>Output</h3>
+            <pre>
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+            </pre>
+        </section>
+        
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+#include <stdio.h>
+int main() {
+    int N;
+    scanf("%d", &N);
+    for (int i = 1; i <= N; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+    return 0;
+}      
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+        
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Observe the pattern carefully. The first row has 1 number, the second row has 2 numbers, and so on.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Use a loop that runs from 1 to N, where each iteration prints numbers from 1 to the current row number.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Use a nested loop: the outer loop controls the rows, and the inner loop prints numbers from 1 to the current row index.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We used a similar approach in the <strong>Star Pattern</strong> problem. Instead of stars (*), print numbers increasing from 1 in each row.</p>
+            </details>
+        </section>
+        
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+        
+        
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <div class="solution-tab-container">
+                    <button class="solution-tab-btn active" data-lang="c">C</button>
+                    <button class="solution-tab-btn" data-lang="python">Python</button>
+                    <button class="solution-tab-btn" data-lang="java">Java</button>
+                </div>
+                <div class="code-box">
+                    <pre id="solution-block">
+#include <stdio.h>
+int main() {
+    int N;
+    scanf("%d", &N);
+    for (int i = 1; i <= N; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("%d ", j);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+        <details>
+  <summary>View Explanation</summary>
+
+  <h3>1&nbsp;·&nbsp;What pattern are we printing?</h3>
+  <p>
+    We're printing a <strong>number triangle</strong> where the first row prints <code>1</code>, the second row prints <code>1 2</code>, the third row prints <code>1 2 3</code>, and so on, up to the input number <code>N</code>.
+  </p>
+  <pre>
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+  </pre>
+
+  <h3>2&nbsp;·&nbsp;Core logic</h3>
+  <ul>
+    <li>Use an outer loop to go through each row (from <code>i = 1</code> to <code>N</code>).</li>
+    <li>For each row, use an inner loop to print numbers from <code>1</code> to <code>i</code>.</li>
+    <li>After the inner loop finishes, move to the next line using <code>\n</code> or <code>print()</code>.</li>
+  </ul>
+
+  <h3>3&nbsp;·&nbsp;Language-wise implementation details</h3>
+
+  <h4>✅ C and Java (Nested loops)</h4>
+  <pre><code>for (int i = 1; i <= N; i++) {
+    for (int j = 1; j <= i; j++) {
+        printf("%d ", j);  // or System.out.print(j + " ");
+    }
+    printf("\n");          // or System.out.println();
+}</code></pre>
+  <p>
+    - Outer loop controls rows<br>
+    - Inner loop prints numbers from <code>1</code> to <code>i</code> for each row
+  </p>
+
+  <h4>✅ Python (Same nested structure, simpler syntax)</h4>
+  <pre><code>N = int(input())
+for i in range(1, N + 1):
+    for j in range(1, i + 1):
+        print(j, end=" ")
+    print()</code></pre>
+  <p>
+    Python uses the same nested-loop logic but with simpler syntax. 
+    The <code>end=" "</code> in <code>print()</code> is used to stay on the same line and print spaces between numbers.
+  </p>
+
+  <h3>4&nbsp;·&nbsp;Time and Space Complexity</h3>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(N²) – Since each row prints up to i numbers (1 + 2 + … + N = O(N²))</li>
+    <li><strong>Space Complexity:</strong> O(1) – No extra data structures used</li>
+  </ul>
+
+  <h3>5&nbsp;·&nbsp;What to remember:</h3>
+  <ul>
+    <li>This is a classic nested-loop pattern question.</li>
+    <li>All rows grow in size with their row number.</li>
+    <li>Same technique works for stars, numbers, alphabets, etc.</li>
+  </ul>
+</details>
+
+    </div>
+   
+</body>
+</html>

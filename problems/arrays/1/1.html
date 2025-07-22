@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Elements in an Array</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./1.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Sum of Elements in an Array</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given an array of integers, calculate the sum of all the elements using an iterative approach.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            5<br>
+            1 2 3 4 5</p>
+            <p><strong>Output:</strong><br>
+            15</p>
+            <p><strong>Explanation:</strong><br>
+            The sum of the array elements is <strong>1 + 2 + 3 + 4 + 5 = 15</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            3<br>
+            10 20 30</p>
+            <p><strong>Output:</strong><br>
+            60</p>
+            <p><strong>Explanation:</strong><br>
+            The sum of the array elements is <strong>10 + 20 + 30 = 60</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ n ≤ 10⁶</strong> (number of elements in the array)</li>
+                <li><strong>−10⁶ ≤ array elements ≤ 10⁶</strong> (elements of the array)</li>
+            </ul>
+        
+            <br>
+        </section>
+        
+    
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, sum = 0;
+            scanf("%d", &n);
+            
+            int arr[n];
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                sum += arr[i];
+            }
+            
+            printf("%d\\n", sum);
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you can iterate through the array to add all its elements together.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Initialize a variable sum to 0 and iterate over the array, adding each element to the sum.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Print the final value of sum after completing the loop.</p>
+            </details>
+        </section>
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <!-- Solution Section as a Details Tag -->
+        <details class="solution">
+            <summary>Solution</summary>
+
+            <!-- Tab System for Solution -->
+            <div class="solution-tab-container">
+                <button class="solution-tab-btn active" data-lang="c">C</button>
+                <button class="solution-tab-btn" data-lang="python">Python</button>
+                <button class="solution-tab-btn" data-lang="java">Java</button>
+            </div>
+
+            <!-- Solution Code Display -->
+            <div id="solution-code-display">
+                <pre>
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, sum = 0;
+            printf("Enter the number of elements: ");
+            scanf("%d", &n);
+            
+            int arr[n];
+            printf("Enter the elements: ");
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                sum += arr[i];
+            }
+            
+            printf("Sum of the elements is: %d\n", sum);
+            return 0;
+        }
+                </pre>
+            </div>
+        </details>
+
+        <details>
+  <summary>Explanation</summary>
+  <p>
+    To calculate the sum of elements in an array, we use a very straightforward iterative approach that works in all 3 languages—C, Python, and Java.
+  </p>
+
+  <h4>🔶 Step-by-step logic:</h4>
+  <ol>
+    <li>First, we read an integer <code>n</code>, which represents the number of elements in the array.</li>
+    <li>We then declare an array of size <code>n</code> and read <code>n</code> integers into it.</li>
+    <li>We initialize a variable (e.g., <code>sum</code>) to 0.</li>
+    <li>We loop over each element in the array and add it to <code>sum</code>.</li>
+    <li>Finally, we print the value of <code>sum</code>.</li>
+  </ol>
+
+  <h4>🧠 Why this works:</h4>
+  <p>We’re iterating over all elements once, so the time complexity is <code>O(n)</code>, which is optimal for this task. It also works for negative numbers, since summation handles both positive and negative integers.</p>
+
+  <h4>💡 Edge Cases:</h4>
+  <ul>
+    <li>When all elements are 0 → output is 0.</li>
+    <li>When elements include negative numbers → they are simply included in the sum.</li>
+    <li>When <code>n = 1</code> → sum is the single element.</li>
+  </ul>
+
+  <h4>💻 Language-Specific Notes:</h4>
+  <ul>
+    <li><strong>C:</strong> Uses dynamic-length arrays (C99 feature). Make sure your compiler supports it.</li>
+    <li><strong>Python:</strong> Typically uses <code>input().split()</code> and <code>map(int, ...)</code> to read input and sum it with a loop or <code>sum()</code>.</li>
+    <li><strong>Java:</strong> Requires <code>Scanner</code> class for input, array creation, and loop for summing.</li>
+  </ul>
+
+  <p>This logic applies cleanly across all three languages without major structural differences.</p>
+</details>
+
+
+        
+    </main>
+
+    <script>
+        // Function to copy the code to clipboard
+        
+        // Tab Switching Logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const solutionTabs = document.querySelectorAll(".solution-tab-btn");
+            solutionTabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    solutionTabs.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const lang = this.getAttribute("data-lang");
+                    // Optionally display code based on selected language (you can add functionality here)
+                    // For example, you can dynamically change solution content based on selected language
+                });
+            });
+        });
+
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

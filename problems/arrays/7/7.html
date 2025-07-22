@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counting Multiples of X in an Array</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./7.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Counting Multiples of X in an Array</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given an array of integers, count how many elements in the array are divisible by a given integer <strong>x</strong>.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            5<br>
+            2 4 6 8 10<br>
+            2</p>
+            <p><strong>Output:</strong><br>
+            5</p>
+            <p><strong>Explanation:</strong><br>
+            All elements (2, 4, 6, 8, 10) are divisible by 2, so the count is <strong>5</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            6<br>
+            3 5 7 9 11 12<br>
+            3</p>
+            <p><strong>Output:</strong><br>
+            3</p>
+            <p><strong>Explanation:</strong><br>
+            The elements divisible by 3 are 3, 9, and 12, so the count is <strong>3</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ n ≤ 10⁶</strong> (number of elements in the array)</li>
+                <li><strong>−10⁶ ≤ array elements ≤ 10⁶</strong> (elements of the array)</li>
+                <li><strong>1 ≤ x ≤ 10⁶</strong> (the divisor)</li>
+            </ul>
+        
+            <br>
+        </section>
+        
+    
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, x, count = 0;
+            scanf("%d %d", &n, &x);
+            
+            int arr[n];
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                if (arr[i] % x == 0) {
+                    count++;
+                }
+            }
+            
+            printf("%d\\n", count);
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you can check if an element is divisible by <strong>x</strong>.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Use the modulus operator (%) to check divisibility. If the remainder is 0, the element is divisible by <strong>x</strong>.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Initialize a variable <strong>count</strong> to 0 and increment it every time you find an element divisible by <strong>x</strong>.</p>
+            </details>
+        </section>
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <!-- Solution Section as a Details Tag -->
+        <details class="solution">
+            <summary>Solution</summary>
+
+            <!-- Tab System for Solution -->
+            <div class="solution-tab-container">
+                <button class="solution-tab-btn active" data-lang="c">C</button>
+                <button class="solution-tab-btn" data-lang="python">Python</button>
+                <button class="solution-tab-btn" data-lang="java">Java</button>
+            </div>
+
+            <!-- Solution Code Display -->
+            <div id="solution-code-display">
+                <pre>
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, x, count = 0;
+            printf("Enter the number of elements and the divisor: ");
+            scanf("%d %d", &n, &x);
+            
+            int arr[n];
+            printf("Enter the elements: ");
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                if (arr[i] % x == 0) {
+                    count++;
+                }
+            }
+            
+            printf("The count of elements divisible by %d is: %d\n", x, count);
+            return 0;
+        }
+                </pre>
+            </div>
+        </details>
+
+        <details>
+  <summary>Explanation</summary>
+
+  <h3>🧾 Problem Understanding</h3>
+  <p>You are given an array of integers and an integer <code>x</code>. Your goal is to count how many elements in the array are divisible by <code>x</code>.</p>
+  <p>An element <code>a[i]</code> is divisible by <code>x</code> if <code>a[i] % x == 0</code>.</p>
+
+  <h3>🔢 Input Format</h3>
+  <ul>
+    <li>The first line contains two integers: <code>n</code> (size of array) and <code>x</code> (the divisor).</li>
+    <li>The second line contains <code>n</code> space-separated integers — the elements of the array.</li>
+  </ul>
+
+  <h3>💡 Step-by-Step Approach</h3>
+  <ol>
+    <li>Read two integers: <code>n</code> and <code>x</code>.</li>
+    <li>Read <code>n</code> integers into an array.</li>
+    <li>Initialize a counter to 0.</li>
+    <li>Loop through each element and check if it is divisible by <code>x</code> using the condition <code>arr[i] % x == 0</code>.</li>
+    <li>If true, increment the counter.</li>
+    <li>Print the final counter value.</li>
+  </ol>
+
+  <h3>📘 Language-Specific Notes</h3>
+  <ul>
+    <li><strong>C:</strong> Use <code>scanf</code> and the modulo operator <code>%</code>.</li>
+    <li><strong>Python:</strong> Use <code>input().split()</code> and a simple <code>if num % x == 0</code> check.</li>
+    <li><strong>Java:</strong> Use <code>Scanner</code> and loop with <code>arr[i] % x == 0</code>.</li>
+  </ul>
+
+  <h3>⚙️ Time and Space Complexity</h3>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(n) — one pass through the array.</li>
+    <li><strong>Space Complexity:</strong> O(n) — storing all elements in the array.</li>
+  </ul>
+
+  <h3>🔍 Edge Cases to Consider</h3>
+  <ul>
+    <li>All elements are divisible by <code>x</code> → count = n.</li>
+    <li>No elements are divisible → count = 0.</li>
+    <li><code>x = 1</code> → All numbers are divisible → count = n.</li>
+    <li>Negative numbers should still work because mod works for them too.</li>
+  </ul>
+
+  <h3>✅ Sample Dry Run</h3>
+  <pre>
+  Input:
+  5 2
+  2 4 6 8 10
+
+  Loop:
+  count = 0
+  → 2 % 2 == 0 → count = 1
+  → 4 % 2 == 0 → count = 2
+  → 6 % 2 == 0 → count = 3
+  → 8 % 2 == 0 → count = 4
+  → 10 % 2 == 0 → count = 5
+
+  Output: 5
+  </pre>
+</details>
+
+    </main>
+
+    <script>
+        
+
+        // Tab Switching Logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const solutionTabs = document.querySelectorAll(".solution-tab-btn");
+            solutionTabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    solutionTabs.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const lang = this.getAttribute("data-lang");
+                    // Optionally display code based on selected language (you can add functionality here)
+                    // For example, you can dynamically change solution content based on selected language
+                });
+            });
+        });
+
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

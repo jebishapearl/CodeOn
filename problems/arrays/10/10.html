@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Second Maximum Element in an Array</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./10.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Find Second Maximum Element in an Array</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given an array of integers, find the second maximum element in the array.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            5<br>
+            1 3 7 2 9</p>
+            <p><strong>Output:</strong><br>
+            7</p>
+            <p><strong>Explanation:</strong><br>
+            The maximum element in the array is 9, and the second maximum element is 7. Hence, the output is <strong>7</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            4<br>
+            10 5 15 20</p>
+            <p><strong>Output:</strong><br>
+            15</p>
+            <p><strong>Explanation:</strong><br>
+            The maximum element in the array is 20, and the second maximum element is 15. Hence, the output is <strong>15</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ n ≤ 10⁶</strong> (number of elements in the array)</li>
+                <li><strong>0 ≤ array elements ≤ 10⁶</strong> (elements of the array)</li>
+            </ul>
+        
+            <br>
+        </section>
+        
+
+        
+    
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+
+    int arr[n];
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int max = arr[0], second_max = -1;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            second_max = max;
+            max = arr[i];
+        } else if (arr[i] > second_max && arr[i] != max) {
+            second_max = arr[i];
+        }
+    }
+
+    printf("%d\n", second_max);
+    return 0;
+}
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Start by initializing two variables, one for the maximum and one for the second maximum. Traverse the array, and when you find a larger element, update both values accordingly.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Make sure you handle the case where all elements are equal, in which case the second maximum might not exist.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Check if there are at least two distinct numbers in the array before considering the second maximum.</p>
+            </details>
+        </section>
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <!-- Solution Section as a Details Tag -->
+        <details class="solution">
+            <summary>Solution</summary>
+
+            <!-- Tab System for Solution -->
+            <div class="solution-tab-container">
+                <button class="solution-tab-btn active" data-lang="c">C</button>
+                <button class="solution-tab-btn" data-lang="python">Python</button>
+                <button class="solution-tab-btn" data-lang="java">Java</button>
+            </div>
+
+            <!-- Solution Code Display -->
+            <div id="solution-code-display">
+                <pre>
+#include <stdio.h>
+
+int main() {
+    int n;
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    printf("Enter the elements: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    int max = arr[0], second_max = -1;
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            second_max = max;
+            max = arr[i];
+        } else if (arr[i] > second_max && arr[i] != max) {
+            second_max = arr[i];
+        }
+    }
+
+    if (second_max == -1) {
+        printf("No second maximum found.\n");
+    } else {
+        printf("The second maximum element is: %d\n", second_max);
+    }
+
+    return 0;
+}
+                </pre>
+            </div>
+        </details>
+
+    <details>
+  <summary>Explanation</summary>
+
+  <h3>📋 Problem Summary</h3>
+  <p>You are given an array of integers. Your goal is to find the <strong>second largest</strong> element — that is, the number which is smaller than the maximum, but larger than all others.</p>
+
+  <h3>🔢 Input Format</h3>
+  <ul>
+    <li>First line: Integer <code>n</code> — number of elements.</li>
+    <li>Second line: <code>n</code> space-separated <strong>non-negative</strong> integers.</li>
+  </ul>
+
+  <h3>🧭 Approach</h3>
+  <ol>
+    <li>Initialize two variables: <code>max</code> and <code>second_max</code>.</li>
+    <li>Iterate through the array.</li>
+    <li>If the current number is greater than <code>max</code>, update both <code>max</code> and <code>second_max</code>.</li>
+    <li>If the current number is less than <code>max</code> but greater than <code>second_max</code>, update <code>second_max</code>.</li>
+    <li>After the loop ends, check if a valid <code>second_max</code> was found.</li>
+  </ol>
+
+  <h3>⚠️ Note for Advanced Learners</h3>
+<p>In this version of the problem, all numbers are non-negative, so initializing <code>second_max</code> to <code>-1</code> works safely.</p>
+<p>However, if <strong>negative numbers were allowed</strong>, using <code>-1</code> would cause issues. For example, what if the array only had values like <code>-5</code>, <code>-10</code>, or <code>-100</code>? In such cases, <code>-1</code> would incorrectly remain the highest.</p>
+<p>To handle such scenarios correctly, you'd use:</p>
+<pre>#include &lt;limits.h&gt;
+int second_max = INT_MIN;
+</pre>
+<p>Here, <code>INT_MIN</code> represents the smallest value that can be stored in an integer. It's defined inside the <code>&lt;limits.h&gt;</code> library, which gives us standardized constants like <code>INT_MIN</code> and <code>INT_MAX</code>.</p>
+<p>But since this is a beginner-friendly logic-building exercise and all inputs are guaranteed to be non-negative, we’ve kept things simple and skipped importing extra headers.</p>
+
+
+  <h3>⚠️ Edge Cases</h3>
+  <ul>
+    <li>All elements are the same → No second maximum.</li>
+    <li>Array size is 1 → No second maximum.</li>
+  </ul>
+
+  <h3>🧠 Complexity</h3>
+  <ul>
+    <li><strong>Time:</strong> O(n)</li>
+    <li><strong>Space:</strong> O(1)</li>
+  </ul>
+
+  <h3>✅ Example Dry Run</h3>
+  <pre>
+Input: 5
+1 3 7 2 9
+
+Initial max = 1, second_max = -1
+→ 3 > 1 → max = 3, second_max = 1
+→ 7 > 3 → max = 7, second_max = 3
+→ 2 < 7, but > 3? No
+→ 9 > 7 → max = 9, second_max = 7
+
+Output: 7
+  </pre>
+</details>
+
+
+    </main>
+
+    <script>
+        
+
+        // Tab Switching Logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const solutionTabs = document.querySelectorAll(".solution-tab-btn");
+            solutionTabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    solutionTabs.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const lang = this.getAttribute("data-lang");
+                    
+                });
+            });
+        });
+
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

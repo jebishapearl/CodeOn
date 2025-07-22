@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./12.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Check if a Number is a Palindrome</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, determine whether it is a palindrome. A number is a palindrome if it remains the same when its digits are reversed.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            121</p>
+            <p><strong>Output:</strong><br>
+            YES</p>
+            <p><strong>Explanation:</strong><br>
+            The number <strong>121</strong> is a palindrome as it remains the same when its digits are reversed.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            123</p>
+            <p><strong>Output:</strong><br>
+            NO</p>
+            <p><strong>Explanation:</strong><br>
+            The number <strong>123</strong> is not a palindrome as its reverse is <strong>321</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>0 ≤ N ≤ 10⁶</strong></li>
+            </ul>
+        
+            <br>
+        </section>
+        
+    
+
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int N, reversed = 0, original, remainder;
+            scanf("%d", &N);
+            original = N;
+            
+            while (N > 0) {
+                remainder = N % 10;
+                reversed = reversed * 10 + remainder;
+                N /= 10;
+            }
+            
+            if (original == reversed)
+                printf("YES\\n");
+            else
+                printf("NO\\n");
+            
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+        
+        
+        
+        
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you would reverse a number digit by digit.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Extract the last digit using modulus (%) and build the reversed number step by step.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Compare the original number with the reversed number to check if they are the same.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We used number reversal in a previous problem. You can apply a similar approach here.</p>
+            </details>
+        </section>
+        
+
+    
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+       <section class="solution">
+    <h2>Solution</h2>
+    <details>
+        <summary>View Solution</summary>
+        <!-- Tab System for Solution -->
+        <div class="solution-tab-container">
+            <button class="solution-tab-btn active" data-lang="c">C</button>
+            <button class="solution-tab-btn" data-lang="python">Python</button>
+            <button class="solution-tab-btn" data-lang="java">Java</button>
+        </div>
+
+        <!-- Solution Code Display -->
+        <div id="solution-code-display">
+            <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N, reversed = 0, original, remainder;
+    
+    printf("enter a number: ");
+    scanf("%d", &N);
+    
+    original = N;
+    
+    while (N > 0) {
+        remainder = N % 10;
+        reversed = reversed * 10 + remainder;
+        N /= 10;
+    }
+    
+    if (original == reversed)
+        printf("YES\\n");
+    else
+        printf("NO\\n");
+    
+    return 0;
+}
+            </pre>
+        </div>
+    </details>
+</section>
+
+<section class="explanation">
+    <h2>Explanation</h2>
+    <details>
+        <summary>View Explanation</summary>
+        <p>
+            To check if a number is a palindrome, we reverse its digits and compare the reversed number with the original.
+        </p>
+        <p>
+            Here's how the logic works in all three languages (C, Python, Java), using the same fundamental idea:
+        </p>
+        <ol>
+            <li>We store the original number in a separate variable (e.g., <code>original</code>).</li>
+            <li>Then we reverse the number using a loop:
+                <ul>
+                    <li>Extract the last digit using <code>% 10</code></li>
+                    <li>Add it to the reversed number after shifting existing digits by one place (multiply by 10)</li>
+                    <li>Remove the last digit using integer division <code>/= 10</code></li>
+                </ul>
+            </li>
+            <li>Once reversed, we check: is <code>reversed == original</code>? If yes, it's a palindrome.</li>
+        </ol>
+
+        <h3>Does the logic differ between C, Python, and Java?</h3>
+        <p>Nope! The approach is exactly the same in all three languages. The only differences are:
+            <ul>
+                <li>In C and Java, you must declare variable types (like <code>int</code>), and use <code>printf/scanf</code> or <code>System.out.println</code>.</li>
+                <li>In Python, there's no need for type declarations or semicolons. You simply use <code>input()</code> and <code>print()</code>.</li>
+            </ul>
+        </p>
+
+        <h3>Example</h3>
+        <p>If the user enters <strong>121</strong>:</p>
+        <ul>
+            <li>Original = 121</li>
+            <li>Reverse process: 1 → 12 → 121</li>
+            <li>Reversed = 121, which matches the original → output is <strong>YES</strong></li>
+        </ul>
+        <p>If the user enters <strong>123</strong>, reverse = 321 ≠ 123 → output is <strong>NO</strong>.</p>
+    </details>
+</section>
+
+
+    </main>
+
+    <script>
+        // Function to copy the code to clipboard
+        
+
+function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

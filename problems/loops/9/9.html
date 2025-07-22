@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table (10 to 1)</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./9.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Multiplication Table (10 to 1)</h1>
+        </header>
+
+        <main>
+            <section class="problem-statement">
+                <h2>Problem Statement</h2>
+                <p>Given a number <strong>N</strong>, print its multiplication table from 10 down to 1.</p>
+            </section>
+            
+            <section class="example">
+                <h2>Example</h2>
+                <h3>Input</h3>
+                <pre>5</pre>
+                <h3>Output</h3>
+                <pre class="output">
+            5 × 10 = 50
+            5 × 9 = 45
+            5 × 8 = 40
+            5 × 7 = 35
+            5 × 6 = 30
+            5 × 5 = 25
+            5 × 4 = 20
+            5 × 3 = 15
+            5 × 2 = 10
+            5 × 1 = 5
+                </pre>
+                <h3>Explanation</h3>
+                <p>For the input number <strong>5</strong>, the multiplication table is created by multiplying 5 with each number starting from 10 down to 1. The results are displayed in the format <strong>N × i = result</strong>, where <strong>N</strong> is the input number and <strong>i</strong> is the multiplier, starting from 10 and decreasing by 1 with each iteration. In this case, the output shows the results of multiplying 5 by each number from 10 down to 1.</p>
+            </section>
+            
+        </main>
+
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N;
+    printf("enter a number: ");
+    scanf("%d", &N);
+
+    // Write your loop here to print the multiplication table from 10 to 1
+
+    return 0;
+}
+</pre>
+
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you normally generate a multiplication table using a loop.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Use a loop that starts from 10 and decrements down to 1.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Multiply the given number N with the current loop value and print the result in the format: <code>N × i = result</code>.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We used a similar approach in the "Multiplication table (1 to 10)" problem, but the loop direction is reversed here.</p>
+            </details>
+        </section>
+
+        
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <div class="solution-tab-container">
+                    <button class="solution-tab-btn active" data-lang="c">C</button>
+                    <button class="solution-tab-btn" data-lang="python">Python</button>
+                    <button class="solution-tab-btn" data-lang="java">Java</button>
+                </div>
+                <div id="solution-code-display">
+                    <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N;
+    printf("enter a number: ");
+    scanf("%d", &N);
+    for (int i = 10; i >= 1; i--) {
+        printf("    %d × %d = %d\n", N, i, N * i);
+    }
+    return 0;
+}
+                    </pre>
+                </div>
+            </details>
+        </section>
+
+
+         <details>
+        <summary>View Explanation</summary>
+        <p><strong>Common Logic:</strong> All three languages perform the same task:</p>
+        <ul>
+            <li>Take an integer input N</li>
+            <li>Use a loop that starts at 10 and goes down to 1</li>
+            <li>Print <code>N × i = result</code> on each line</li>
+        </ul>
+
+        <p><strong>Language-Specific Notes:</strong></p>
+        <ul>
+            <li><strong>C:</strong> Uses <code>scanf</code> to read input and <code>printf</code> for formatted output with format specifiers like <code>%d</code>.</li>
+            <li><strong>Python:</strong> Uses <code>input()</code> for reading input and <code>f-strings</code> (or <code>format()</code>) to format the output cleanly. Loop uses <code>range(10, 0, -1)</code> to count backwards.</li>
+            <li><strong>Java:</strong> Uses <code>Scanner</code> to read input and <code>System.out.println</code> to display results. Loop runs in reverse using <code>i--</code>.</li>
+        </ul>
+
+        <p>Though syntax varies slightly, the logic is identical in all three. Python remains the most concise, while C and Java require more boilerplate code.</p>
+    </details>
+</section>
+
+    </div>
+</body>
+</html>

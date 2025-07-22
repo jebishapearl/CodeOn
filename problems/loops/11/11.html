@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count digits</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./11.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Count Digits in a Number</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, count the number of digits in it using an iterative approach.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            12345</p>
+            <p><strong>Output:</strong><br>
+            5</p>
+            <p><strong>Explanation:</strong><br>
+            The number <strong>12345</strong> has 5 digits.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            987654321</p>
+            <p><strong>Output:</strong><br>
+            9</p>
+            <p><strong>Explanation:</strong><br>
+            The number <strong>987654321</strong> has 9 digits.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>0 ≤ N ≤ 10⁹</strong></li>
+            </ul>
+        
+            <br>
+        </section>
+        
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+               <pre id="starter-code-block">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N, count = 0;
+
+    // Take input from user
+    printf("enter a number: ");
+    scanf("%d", &N);
+
+    // Logic to count digits goes here
+
+    return 0;
+}
+</pre>
+
+
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+        
+        
+        
+        
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you normally count the number of digits in a number.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Initialize a counter variable to 0 and repeatedly divide the number by 10.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Each division removes the last digit. Continue until the number becomes 0, incrementing the counter at each step.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We used a similar iterative approach in the <strong>Reverse a Number</strong> problem to process digits one by one.</p>
+            </details>
+        </section>
+
+       
+
+        
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <!-- Tab System for Solution -->
+<div class="solution-tab-container">
+    <button class="solution-tab-btn active" data-lang="c">C</button>
+    <button class="solution-tab-btn" data-lang="python">Python</button>
+    <button class="solution-tab-btn" data-lang="java">Java</button>
+</div>
+
+<!-- Solution Code Display -->
+<div id="solution-code-display">
+    <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N, count = 0;
+    printf("enter a number: ");
+    scanf("%d", &N);
+
+    // Special case for 0
+    if (N == 0) {
+        count = 1;
+    } else {
+        while (N > 0) {
+            count++;
+            N /= 10;
+        }
+    }
+
+    printf("%d\n", count);
+    return 0;
+}
+</pre>
+
+</div>
+
+            </details>
+        </section>
+
+        <section class="explanation">
+  <h2>Explanation</h2>
+  <details>
+    <summary>View Explanation</summary>
+    
+    <p>To count the number of digits in a number, we repeatedly divide it by 10. Each division removes the last digit, and we increase a counter to keep track of how many digits we removed. When the number becomes 0, we stop.</p>
+
+    <h3>Approach</h3>
+    <ul>
+      <li>Initialize a variable <code>count</code> to 0.</li>
+      <li>While the number <code>N</code> is greater than 0:</li>
+      <ul>
+        <li>Increment <code>count</code></li>
+        <li>Divide <code>N</code> by 10</li>
+      </ul>
+      <li>If <code>N</code> is 0 initially, we manually set <code>count = 1</code> (since 0 has one digit).</li>
+    </ul>
+
+    <h3>Example</h3>
+    <p>If the number is <code>12345</code>:</p>
+    <ol>
+      <li>12345 → count = 1</li>
+      <li>1234 → count = 2</li>
+      <li>123 → count = 3</li>
+      <li>12 → count = 4</li>
+      <li>1 → count = 5</li>
+      <li>0 → loop ends</li>
+    </ol>
+    <p>Final count = <strong>5</strong></p>
+
+    <h3>Language Notes</h3>
+    <ul>
+      <li><strong>C, Python, and Java</strong> all use the same approach: loop + division + counter.</li>
+      <li>Python and Java automatically handle large numbers. In C, make sure to use <code>long</code> if testing large values (up to 10⁹).</li>
+    </ul>
+  </details>
+</section>
+
+    </main>
+
+    <script>
+        // Function to copy the code to clipboard
+        
+
+function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

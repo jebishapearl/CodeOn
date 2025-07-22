@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Squares of Elements in an Array</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./4.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Sum of Squares of Elements in an Array</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given an array of integers, calculate the sum of squares of all the elements using an iterative approach.</p>
+            <h3>Example</h3>
+            <p>Consider the array <code>[1, 2, 3, 4]</code>:</p>
+            <p>The sum of squares is: <code>1^2 + 2^2 + 3^2 + 4^2 = 1 + 4 + 9 + 16 = 30</code></p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            4<br>
+            1 2 3 4</p>
+            <p><strong>Output:</strong><br>
+            30</p>
+            <p><strong>Explanation:</strong><br>
+            The squares of the elements are 1, 4, 9, and 16. Their sum is <strong>1 + 4 + 9 + 16 = 30</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            3<br>
+            5 6 7</p>
+            <p><strong>Output:</strong><br>
+            110</p>
+            <p><strong>Explanation:</strong><br>
+            The squares of the elements are 25, 36, and 49. Their sum is <strong>25 + 36 + 49 = 110</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ n ≤ 10⁶</strong> (number of elements in the array)</li>
+                <li><strong>−10⁶ ≤ array elements ≤ 10⁶</strong> (elements of the array)</li>
+            </ul>
+        
+            <br>
+        </section>
+        
+    
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, sum = 0;
+            scanf("%d", &n);
+            
+            int arr[n];
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                sum += arr[i] * arr[i];  // Squaring each element
+            }
+            
+            printf("%d\\n", sum);
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you can iterate through the array to calculate the square of each element and add it to a running total.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Initialize a variable sum to 0 and iterate over the array, adding the square of each element to the sum.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Print the final value of sum after completing the loop.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>This is similar to problem 5 (sum of squares of n numbers) under loops. Think of this as applying the sum of squares logic to each element of the array.</p>
+            </details>
+        </section>
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <!-- Solution Section as a Details Tag -->
+        <details class="solution">
+            <summary>Solution</summary>
+
+            <!-- Tab System for Solution -->
+            <div class="solution-tab-container">
+                <button class="solution-tab-btn active" data-lang="c">C</button>
+                <button class="solution-tab-btn" data-lang="python">Python</button>
+                <button class="solution-tab-btn" data-lang="java">Java</button>
+            </div>
+
+            <!-- Solution Code Display -->
+            <div id="solution-code-display">
+                <pre>
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, sum = 0;
+            printf("Enter the number of elements: ");
+            scanf("%d", &n);
+            
+            int arr[n];
+            printf("Enter the elements: ");
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                sum += arr[i] * arr[i];  // Squaring each element
+            }
+            
+            printf("Sum of squares of the elements is: %d\n", sum);
+            return 0;
+        }
+                </pre>
+            </div>
+        </details>
+
+        <details>
+  <summary>Explanation</summary>
+
+  <h3>🧾 Problem Understanding</h3>
+  <p>You are given an array of integers. The goal is to calculate the sum of the squares of each element. That means for each element <code>arr[i]</code>, you compute <code>arr[i] * arr[i]</code> and add it to a cumulative <code>sum</code>.</p>
+
+  <h3>🔢 Input Format</h3>
+  <ul>
+    <li>The first line contains the integer <code>n</code>, the size of the array.</li>
+    <li>The second line contains <code>n</code> space-separated integers — the elements of the array.</li>
+  </ul>
+
+  <h3>💡 Step-by-Step Approach</h3>
+  <ol>
+    <li>Read the value of <code>n</code>.</li>
+    <li>Read <code>n</code> elements into an array.</li>
+    <li>Initialize a variable <code>sum</code> to 0.</li>
+    <li>Use a loop to iterate from <code>0</code> to <code>n-1</code>.</li>
+    <li>In each iteration, compute <code>arr[i] * arr[i]</code> and add it to <code>sum</code>.</li>
+    <li>After the loop ends, print <code>sum</code>.</li>
+  </ol>
+
+  <h3>📘 Language-Specific Notes</h3>
+  <ul>
+    <li><strong>C:</strong> Uses variable-length arrays (VLA) and a loop with <code>sum += arr[i] * arr[i]</code>.</li>
+    <li><strong>Python:</strong> Use a list to store numbers, and use a <code>for</code> loop or list comprehension to compute squares and sum them.</li>
+    <li><strong>Java:</strong> Use an <code>int[]</code> array and loop with <code>arr[i] * arr[i]</code> to accumulate sum.</li>
+  </ul>
+
+  <h3>⚙️ Time and Space Complexity</h3>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(n) — Each element is accessed once.</li>
+    <li><strong>Space Complexity:</strong> O(n) — Array of size <code>n</code> is stored.</li>
+  </ul>
+
+  <h3>🔍 Edge Cases to Consider</h3>
+  <ul>
+    <li>All elements are 0 → sum will be 0.</li>
+    <li>Elements include negative numbers → squaring them makes the result positive.</li>
+    <li>Large values like ±10⁶ → square will be up to 10¹², ensure data type handles it (Python handles big ints, C/Java: consider <code>long long</code> / <code>long</code> if needed).</li>
+  </ul>
+
+  <h3>✅ Sample Dry Run</h3>
+  <pre>
+  Input:
+  4
+  1 2 3 4
+
+  Loop:
+  sum = 0
+  i = 0 → 1*1 = 1 → sum = 1
+  i = 1 → 2*2 = 4 → sum = 5
+  i = 2 → 3*3 = 9 → sum = 14
+  i = 3 → 4*4 = 16 → sum = 30
+
+  Final Output: 30
+  </pre>
+</details>
+
+    </main>
+
+    <script>
+        
+
+        // Tab Switching Logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const solutionTabs = document.querySelectorAll(".solution-tab-btn");
+            solutionTabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    solutionTabs.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const lang = this.getAttribute("data-lang");
+                    // Optionally display code based on selected language (you can add functionality here)
+                    // For example, you can dynamically change solution content based on selected language
+                });
+            });
+        });
+
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

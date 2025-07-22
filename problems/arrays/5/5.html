@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Even Numbers in an Array</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./5.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Count Even Numbers in an Array</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given an array of integers, count how many even numbers are present in the array.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            5<br>
+            1 2 3 4 5</p>
+            <p><strong>Output:</strong><br>
+            2</p>
+            <p><strong>Explanation:</strong><br>
+            The even numbers are 2 and 4, so the count is <strong>2</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            4<br>
+            10 11 12 13</p>
+            <p><strong>Output:</strong><br>
+            2</p>
+            <p><strong>Explanation:</strong><br>
+            The even numbers are 10 and 12, so the count is <strong>2</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>1 ≤ n ≤ 10⁶</strong> (number of elements in the array)</li>
+                <li><strong>−10⁶ ≤ array elements ≤ 10⁶</strong> (elements of the array)</li>
+            </ul>
+        
+            <br>
+        </section>
+        
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, evenCount = 0;
+            scanf("%d", &n);
+            
+            int arr[n];
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                if (arr[i] % 2 == 0) {
+                    evenCount++;
+                }
+            }
+            
+            printf("%d\\n", evenCount);
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you can check if a number is even while iterating through the array.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Use the modulo operator (%) to check if a number is divisible by 2.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Increment the count each time you find an even number in the array.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🧩</summary>
+                <p>Use the same condition in problem 5 (summing even elements) of the Arrays section.</p>
+            </details>
+        </section>
+
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <!-- Solution Section as a Details Tag -->
+        <details class="solution">
+            <summary>Solution</summary>
+
+            <!-- Tab System for Solution -->
+            <div class="solution-tab-container">
+                <button class="solution-tab-btn active" data-lang="c">C</button>
+                <button class="solution-tab-btn" data-lang="python">Python</button>
+                <button class="solution-tab-btn" data-lang="java">Java</button>
+            </div>
+
+            <!-- Solution Code Display -->
+            <div id="solution-code-display">
+                <pre>
+        #include &lt;stdio.h&gt;
+        int main() {
+            int n, evenCount = 0;
+            printf("Enter the number of elements: ");
+            scanf("%d", &n);
+            
+            int arr[n];
+            printf("Enter the elements: ");
+            for (int i = 0; i < n; i++) {
+                scanf("%d", &arr[i]);
+            }
+            
+            for (int i = 0; i < n; i++) {
+                if (arr[i] % 2 == 0) {
+                    evenCount++;
+                }
+            }
+            
+            printf("Count of even numbers is: %d\n", evenCount);
+            return 0;
+        }
+                </pre>
+            </div>
+        </details>
+
+        <details>
+  <summary>Explanation</summary>
+
+  <h3>🧾 Problem Understanding</h3>
+  <p>You are given an array of integers and your task is to count how many of them are even. A number is even if it is divisible by 2 (i.e., <code>number % 2 == 0</code>).</p>
+
+  <h3>🔢 Input Format</h3>
+  <ul>
+    <li>The first line contains an integer <code>n</code> — the number of elements in the array.</li>
+    <li>The second line contains <code>n</code> space-separated integers — the elements of the array.</li>
+  </ul>
+
+  <h3>💡 Step-by-Step Approach</h3>
+  <ol>
+    <li>Read the number of elements <code>n</code>.</li>
+    <li>Read the <code>n</code> integers into an array.</li>
+    <li>Initialize a counter variable <code>evenCount</code> to 0.</li>
+    <li>Loop through the array.</li>
+    <li>For each element, check if it’s even using <code>arr[i] % 2 == 0</code>.</li>
+    <li>If it’s even, increment <code>evenCount</code>.</li>
+    <li>After the loop ends, print the value of <code>evenCount</code>.</li>
+  </ol>
+
+  <h3>📘 Language-Specific Notes</h3>
+  <ul>
+    <li><strong>C:</strong> Uses a simple <code>for</code> loop with array indexing and condition check.</li>
+    <li><strong>Python:</strong> Use a loop or list comprehension with <code>if num % 2 == 0</code> to count.</li>
+    <li><strong>Java:</strong> Loop through an <code>int[]</code> and check <code>arr[i] % 2 == 0</code>.</li>
+  </ul>
+
+  <h3>⚙️ Time and Space Complexity</h3>
+  <ul>
+    <li><strong>Time Complexity:</strong> O(n) — Each element is checked once.</li>
+    <li><strong>Space Complexity:</strong> O(n) — For storing the array.</li>
+  </ul>
+
+  <h3>🔍 Edge Cases to Consider</h3>
+  <ul>
+    <li>All elements are even → output = n.</li>
+    <li>No even elements → output = 0.</li>
+    <li>Negative even numbers → should also be counted.</li>
+    <li>Array of size 1 → edge condition check.</li>
+  </ul>
+
+  <h3>✅ Sample Dry Run</h3>
+  <pre>
+  Input:
+  5
+  1 2 3 4 5
+
+  Loop:
+  evenCount = 0
+  i = 0 → 1 is odd → evenCount = 0
+  i = 1 → 2 is even → evenCount = 1
+  i = 2 → 3 is odd → evenCount = 1
+  i = 3 → 4 is even → evenCount = 2
+  i = 4 → 5 is odd → evenCount = 2
+
+  Output: 2
+  </pre>
+</details>
+
+    </main>
+
+    <script>
+        
+        // Tab Switching Logic
+        document.addEventListener("DOMContentLoaded", function () {
+            const solutionTabs = document.querySelectorAll(".solution-tab-btn");
+            solutionTabs.forEach(tab => {
+                tab.addEventListener("click", function () {
+                    solutionTabs.forEach(btn => btn.classList.remove("active"));
+                    this.classList.add("active");
+
+                    const lang = this.getAttribute("data-lang");
+                    // Optionally display code based on selected language (you can add functionality here)
+                    // For example, you can dynamically change solution content based on selected language
+                });
+            });
+        });
+
+        function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>

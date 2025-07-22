@@ -1,0 +1,136 @@
+
+
+details summary {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+/* Remove the default triangle */
+details summary {
+    list-style-type: none;
+    cursor: pointer; /* Change the cursor to indicate clickable */
+}
+
+/* Optional: Add custom styling for the chevron icon */
+details summary i {
+    margin-right: 8px; /* Space between the icon and the text */
+    transition: transform 0.3s ease; /* Smooth rotation effect */
+}
+
+details[open] summary i {
+    transform: rotate(90deg); /* Rotate the icon when the details are expanded */
+}
+
+/* General Styles */
+body {
+    background-color: #fcf3d3; /* Warm pastel yellow */
+    color: #1b2a49; /* Dark blue text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Tab Container */
+.tab-container {
+    display: flex;
+    justify-content: center;
+    background-color: #1b2a49; /* Dark blue */
+    padding: 10px;
+}
+
+/* Tabs */
+.tab {
+    background-color: white; /* Default inactive state */
+    color: #1b2a49; /* Dark blue text */
+    padding: 12px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s, color 0.3s;
+    text-align: center;
+    border: 2px solid #1b2a49;
+    text-decoration: none;
+}
+
+.tab:hover {
+    background: #5a6a8d; /* Lighter dark blue on hover */
+    color: white;
+}
+
+.tab.active {
+    background-color: #1b2a49; /* Dark blue when active */
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Content Sections */
+.content-section {
+    display: none; /* Initially hidden */
+    padding: 20px;
+    background: #fcf3d3;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1100px;
+}
+
+.tab-container{
+    background:  #fcf3d3;
+
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* Headers and Text */
+h2 {
+    color: #1b2a49; /* Dark blue */
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Code Blocks */
+code {
+    background-color: #ffe5b4; /* Warm pastel peach */
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    color: #1b2a49;
+}
+
+/* List Styling */
+ul {
+    background-color: #fcf3d3; /* Light cream */
+    padding: 15px;
+    border-radius: 5px;
+    list-style-type: square;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .tab-container {
+        flex-direction: column;
+    }
+    .tab {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+details summary i {
+    transition: transform 0.3s ease;
+    margin-right: 8px;
+}
+
+details[open] summary i {
+    transform: rotate(90deg);
+}

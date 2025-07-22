@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1CV82TT7K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E1CV82TT7K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse number</title>
+    <link rel="stylesheet" href="./../../styles.css">
+    <script defer src="./10.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Reverse a Number</h1>
+    </header>
+    <main>
+        <section class="problem-statement">
+            <h2>Problem Statement</h2>
+            <p>Given a number <strong>N</strong>, reverse its digits and print the reversed number.</p>
+        </section>
+        
+        <section class="io-format">
+            <h2>Example 1</h2>
+            <p><strong>Input:</strong><br>
+            12345</p>
+            <p><strong>Output:</strong><br>
+            54321</p>
+            <p><strong>Explanation:</strong><br>
+            The number <strong>12345</strong> has its digits reversed to <strong>54321</strong>.</p>
+        
+            <h2>Example 2</h2>
+            <p><strong>Input:</strong><br>
+            9876</p>
+            <p><strong>Output:</strong><br>
+            6789</p>
+            <p><strong>Explanation:</strong><br>
+            The number <strong>9876</strong> has its digits reversed to <strong>6789</strong>.</p>
+        
+            <h3>Constraints</h3>
+            <ul>
+                <li><strong>0 ≤ N ≤ 10⁶</strong></li>
+            </ul>
+        
+            <br>
+        </section>
+        
+    
+    
+
+        <section class="starter-code">
+            <h2>Starter Code</h2>
+            <p>Copy the template into the IDE</p>
+            <div class="tab-container">
+                <button class="starter-tab-btn active" data-lang="c">C</button>
+                <button class="starter-tab-btn" data-lang="python">Python</button>
+                <button class="starter-tab-btn" data-lang="java">Java</button>
+            </div>
+            <div class="code-box">
+                <pre id="starter-code-block">
+        #include &lt;stdio.h&gt;
+        int main() {
+            int N, reversed = 0;
+            printf("enter a number: ");
+            scanf("%d", &N);
+            
+            while (N > 0) {
+                reversed = reversed * 10 + (N % 10);
+                N /= 10;
+            }
+            
+            printf("%d\\n", reversed);
+            return 0;
+        }
+                </pre>
+                <button id="copy-btn">Copy Code</button>
+            </div>
+        </section>
+        
+        
+        
+        
+
+        <section class="hints">
+            <h2>Hints</h2>
+            <details>
+                <summary>Hint 1 🔍</summary>
+                <p>Think about how you normally extract digits from a number one by one.</p>
+            </details>
+            <details>
+                <summary>Hint 2 🤔</summary>
+                <p>Use the modulus operator (%) to get the last digit and integer division (//) to remove it.</p>
+            </details>
+            <details>
+                <summary>Hint 3 🛠️</summary>
+                <p>Accumulate the reversed number by multiplying the current result by 10 and adding the extracted digit.</p>
+            </details>
+            <details>
+                <summary>Hint 4 🔄</summary>
+                <p>We used a similar looping technique in the <strong>Multiplication Table (10 to 1)</strong> problem to control the order of operations.</p>
+            </details>
+        </section>
+        
+        
+
+       
+
+       
+        <section class="code-area">
+            <h2>Try It Yourself</h2>
+            <div class="editor-container">
+              <div class="editor-header">
+                <button class="copy-btn" onclick="copyUserCode()">Copy Code</button>
+              </div>
+              <textarea class="code-editor" id="user-code" placeholder="Type your code here..."></textarea>
+            </div>
+            <a href="https://www.programiz.com/c-programming/online-compiler/" target="_blank">
+              <button class="run-btn">Open Online IDE</button>
+            </a>
+          </section>
+
+        <section class="solution">
+            <h2>Solution</h2>
+            <details>
+                <summary>View Solution</summary>
+                <!-- Tab System for Solution -->
+<div class="solution-tab-container">
+    <button class="solution-tab-btn active" data-lang="c">C</button>
+    <button class="solution-tab-btn" data-lang="python">Python</button>
+    <button class="solution-tab-btn" data-lang="java">Java</button>
+</div>
+
+<!-- Solution Code Display -->
+<div id="solution-code-display">
+    <pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int N, reversed = 0;
+    printf("enter a number: ");
+    scanf("%d", &N);
+    
+    while (N > 0) {
+        reversed = reversed * 10 + (N % 10);
+        N /= 10;
+    }
+    
+    printf("%d\\n", reversed);
+    return 0;
+}
+    </pre>
+</div>
+
+            </details>
+        </section>
+
+        <section class="explanation">
+    <h2>Explanation</h2>
+    <details>
+        <summary>View Explanation</summary>
+        <p>This problem asks us to reverse the digits of a number. For example, if the number is <code>12345</code>, we need to transform it into <code>54321</code>.</p>
+        
+        <h3>Approach</h3>
+        <ul>
+            <li>We extract the last digit of the number using the modulus operator (<code>%</code>).</li>
+            <li>We build the reversed number by multiplying the current reversed value by 10 and adding the extracted digit.</li>
+            <li>We remove the last digit from the original number using integer division (<code>/</code> in C/Java, <code>//</code> in Python).</li>
+            <li>This process continues until the number becomes 0.</li>
+        </ul>
+
+        <h3>Example Walkthrough</h3>
+        <p>Let’s say <code>N = 123</code>. Here's how the process works step by step:</p>
+        <ol>
+            <li>Initial <code>reversed = 0</code>, <code>N = 123</code></li>
+            <li>Take last digit → <code>3</code>. Now <code>reversed = 0 * 10 + 3 = 3</code>, <code>N = 12</code></li>
+            <li>Take last digit → <code>2</code>. Now <code>reversed = 3 * 10 + 2 = 32</code>, <code>N = 1</code></li>
+            <li>Take last digit → <code>1</code>. Now <code>reversed = 32 * 10 + 1 = 321</code>, <code>N = 0</code></li>
+        </ol>
+        <p>Final output is <code>321</code>.</p>
+
+        <h3>Language Notes</h3>
+        <ul>
+            <li><strong>C, Python, and Java all use the same approach.</strong></li>
+            <li>All three use a loop, the modulo operator (<code>%</code>), and integer division to peel off digits and build the reversed number.</li>
+        </ul>
+    </details>
+</section>
+
+    </main>
+
+    <script>
+        // Function to copy the code to clipboard
+        
+
+function copyUserCode() {
+  const userCode = document.getElementById('user-code');
+  navigator.clipboard.writeText(userCode.value)
+    .then(() => {
+      alert('Code copied to clipboard!');
+    })
+    .catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+}
+
+
+
+    </script>
+    <script src="../../../footer.js"></script>
+</body>
+</html>
